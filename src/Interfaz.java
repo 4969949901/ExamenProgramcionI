@@ -8,7 +8,7 @@
  * @author helenacevedo
  */
 public class Interfaz extends javax.swing.JFrame {
-
+  EjercicioConSuerte nota = new EjercicioConSuerte();
     /**
      * Creates new form Interfaz
      */
@@ -29,10 +29,11 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
-        jTextField3 = new javax.swing.JTextField();
+        jTextNota = new javax.swing.JTextField();
+        jTextNota2 = new javax.swing.JTextField();
+        jTextNota3 = new javax.swing.JTextField();
         jBtnCalcular = new javax.swing.JButton();
+        jTextMostrar = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -48,9 +49,38 @@ public class Interfaz extends javax.swing.JFrame {
         jLabel3.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jLabel3.setText("Ingrese tercera nota:");
 
+        jTextNota.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextNota.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNotaActionPerformed(evt);
+            }
+        });
+
+        jTextNota2.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextNota2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNota2ActionPerformed(evt);
+            }
+        });
+
+        jTextNota3.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        jTextNota3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextNota3ActionPerformed(evt);
+            }
+        });
+
         jBtnCalcular.setBackground(new java.awt.Color(102, 255, 204));
         jBtnCalcular.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
         jBtnCalcular.setText("CALCULAR");
+        jBtnCalcular.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCalcularActionPerformed(evt);
+            }
+        });
+
+        jTextMostrar.setFont(new java.awt.Font("Times New Roman", 3, 14)); // NOI18N
+        jTextMostrar.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -66,13 +96,15 @@ public class Interfaz extends javax.swing.JFrame {
                             .addComponent(jLabel3, javax.swing.GroupLayout.Alignment.LEADING))
                         .addGap(40, 40, 40)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jTextField1)
-                            .addComponent(jTextField2)
-                            .addComponent(jTextField3, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)))
+                            .addComponent(jTextNota)
+                            .addComponent(jTextNota2)
+                            .addComponent(jTextNota3, javax.swing.GroupLayout.DEFAULT_SIZE, 129, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(105, 105, 105)
-                        .addComponent(jBtnCalcular)))
-                .addContainerGap(326, Short.MAX_VALUE))
+                        .addComponent(jBtnCalcular)
+                        .addGap(77, 77, 77)
+                        .addComponent(jTextMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 118, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(289, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -80,17 +112,19 @@ public class Interfaz extends javax.swing.JFrame {
                 .addGap(35, 35, 35)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextNota, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextNota2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTextNota3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(60, 60, 60)
-                .addComponent(jBtnCalcular)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jBtnCalcular)
+                    .addComponent(jTextMostrar, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(207, Short.MAX_VALUE))
         );
 
@@ -107,6 +141,27 @@ public class Interfaz extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnCalcularActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCalcularActionPerformed
+        // codigo boton calcular:
+        double num1=Double.parseDouble(jTextNota.getText());
+        double num2=Double.parseDouble(jTextNota2.getText());
+        double num3=Double.parseDouble(jTextNota3.getText());
+        double notaExamen=nota.notas(num1, num2, num3);
+         jTextMostrar.setText(String.valueOf(notaExamen)); 
+    }//GEN-LAST:event_jBtnCalcularActionPerformed
+
+    private void jTextNotaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNotaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNotaActionPerformed
+
+    private void jTextNota2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNota2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNota2ActionPerformed
+
+    private void jTextNota3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextNota3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jTextNota3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,8 +204,9 @@ public class Interfaz extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    private javax.swing.JTextField jTextMostrar;
+    private javax.swing.JTextField jTextNota;
+    private javax.swing.JTextField jTextNota2;
+    private javax.swing.JTextField jTextNota3;
     // End of variables declaration//GEN-END:variables
 }
