@@ -9,7 +9,7 @@ public class EjercicioConSuerte {
     
     
     //Metodo
-    public double notas(){
+    public double notas(int num1,int num2, int num3){
         
         if(notaExamen<35){  
             notaExamen=num1+num2+num3;
